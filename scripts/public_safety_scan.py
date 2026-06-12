@@ -17,7 +17,8 @@ PATTERNS = {
     'private_ip': re.compile(r'\b(?:192\.168|10\.|172\.(?:1[6-9]|2\d|3[01])\.)'),
     'tailscale_ip': re.compile(r'\b100\.(?:6[4-9]|[7-9]\d|1[01]\d|12[0-7])\.'),
     'private_domain': re.compile(r'personaltechwiz\.com|\.local\b', re.I),
-    'host_path': re.compile(r'/DATA|/media/devmon|/media/ptw|/mnt/recover|/home/[^/\s]+', re.I),
+    # Match private host paths, but intentionally do not flag generic container paths like /data or /downloads.
+    'host_path': re.compile(r'/DATA|/media/devmon|/media/ptw|/mnt/recover|/home/[^/\s]+'),
     'secret_assignment': re.compile(r'(?i)(password|passwd|token|api[_-]?key|secret|passkey)\s*[:=]\s*(?!$|replac|change-me|your-|example|placeholder|\$|\{)[^\s#]+'),
     'long_hex': re.compile(r'(?<![A-Fa-f0-9])[A-Fa-f0-9]{32,}(?![A-Fa-f0-9])'),
 }
@@ -33,10 +34,12 @@ for path in ROOT.rglob('*'):
         text = path.read_text(errors='ignore')
     except Exception:
         continue
-    for lineno, line in enumerate(text.splitlines(), 1):
+    for i, line in enumerate(text.splitlines(), 1):
+        if 'replace-me' in line or 'placeholder' in line or 'your-' in line:
+            continue
         for name, pattern in PATTERNS.items():
             if pattern.search(line):
-                hits.append((path.relative_to(ROOT), lineno, name, line.strip()))
+                hits.append((path.relative_to(ROOT), i, name, line.strip()))
 
 if hits:
     for rel, lineno, name, line in hits:

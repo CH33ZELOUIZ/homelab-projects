@@ -11,6 +11,8 @@ This repo is the map. Individual tools live in their own repositories so they ca
 | GameFinder | Search console/ROM-capable Prowlarr indexers, send downloads to qBittorrent, and stage completed files into a RomM-style library layout. | <https://github.com/CH33ZELOUIZ/gamefinder> |
 | Minecraft Server Dashboard | Mobile-friendly private dashboard for a Dockerized Minecraft server: status, logs, RCON commands, settings, file browser, icon upload, and shell. | <https://github.com/CH33ZELOUIZ/minecraft-server-dashboard> |
 | LEGO Catalog | Dockerized Flask app for tracking LEGO sets and minifigures with owned/wanted lists, CSV import/export, metadata enrichment, cached images, and review workflows. | <https://github.com/CH33ZELOUIZ/lego-catalog> |
+| Jellyfin Signup Helper | Tiny self-hosted signup page for creating Jellyfin users, plus optional default home/library preference setup. | <https://github.com/CH33ZELOUIZ/jellyfin-signup-helper> |
+| Media Automation Stack Template | Public-safe Docker Compose template for Gluetun, qBittorrent, Servarr apps, Jellyfin/Jellyseerr, and Unpackerr. | <https://github.com/CH33ZELOUIZ/media-automation-stack-template> |
 
 ## Design goals
 

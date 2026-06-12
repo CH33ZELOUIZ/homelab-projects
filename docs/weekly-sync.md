@@ -27,12 +27,12 @@ A scheduled Hermes job compares the private server projects with their public-sa
 - `minecraft-server-dashboard`
 - `lego-catalog`
 - `homelab-projects`
+- `jellyfin-signup-helper`
+- `media-automation-stack-template`
 
 ## Candidate backlog
 
 - command-center dashboard template
-- media automation stack template
-- Jellyfin signup helper
 - Navidrome intelligence API
 - Minecraft plugin updater
 - IPTV/EPG cleanup tooling as docs/templates only

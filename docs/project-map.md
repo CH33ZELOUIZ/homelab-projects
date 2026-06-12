@@ -42,12 +42,38 @@ Repo: <https://github.com/CH33ZELOUIZ/minecraft-server-dashboard>
 
 Repo: <https://github.com/CH33ZELOUIZ/lego-catalog>
 
+## Jellyfin Signup Helper
+
+**Use case:** Lightweight signup page for controlled Jellyfin account creation.
+
+**Patterns worth reusing:**
+
+- Validate usernames and passwords before calling Jellyfin.
+- Create non-admin users with conservative policy defaults.
+- Keep the user-facing public Jellyfin URL separate from the internal container URL.
+- Treat signup pages as private/invite-only unless you add real public anti-abuse controls.
+- Never publish Jellyfin databases or API keys.
+
+Repo: <https://github.com/CH33ZELOUIZ/jellyfin-signup-helper>
+
+## Media Automation Stack Template
+
+**Use case:** Generic private media automation stack template.
+
+**Patterns worth reusing:**
+
+- Route qBittorrent through Gluetun with `network_mode: service:gluetun`.
+- Expose qBittorrent ports on Gluetun, not qBittorrent.
+- Use one shared `/data` mount across downloaders and media managers to preserve hardlinks.
+- Keep all real VPN credentials, API keys, indexer/tracker details, and paths out of git.
+- Document the path contract before users configure Sonarr/Radarr/Lidarr.
+
+Repo: <https://github.com/CH33ZELOUIZ/media-automation-stack-template>
+
 ## Planned public exports
 
 These are useful but require deeper sanitization before publication:
 
 - Command Center dashboard template: private homelab dashboard layout, service cards, live widgets, and automation buttons.
-- Media automation stack template: generic Docker Compose patterns for Gluetun, qBittorrent, Servarr apps, Jellyfin/Jellyseerr, Unpackerr, and related tooling.
-- Jellyfin signup helper: small account/self-service helper pattern.
 - Navidrome intelligence/recommendation API: read-only music-library metadata helper.
 - Minecraft plugin updater: small automation script for server plugin updates.
