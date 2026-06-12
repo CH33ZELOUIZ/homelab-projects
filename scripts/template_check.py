@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Lightweight public-repo safety scan.
+"""Lightweight template repository check.
 
-This catches common private homelab leaks before publishing. It is intentionally
-conservative and should be paired with human review.
+Catches common local-environment leaks before a template is published or updated.
+It is intentionally conservative and should be paired with human review.
 """
 from __future__ import annotations
 
@@ -28,7 +28,7 @@ for path in ROOT.rglob('*'):
     if any(part in SKIP_PARTS for part in path.parts) or not path.is_file():
         continue
     rel_path = path.relative_to(ROOT)
-    if path.name in SKIP_NAMES or str(rel_path) == 'scripts/public_safety_scan.py':
+    if path.name in SKIP_NAMES or str(rel_path) == 'scripts/template_check.py':
         continue
     try:
         text = path.read_text(errors='ignore')
@@ -48,4 +48,4 @@ if hits:
         print(f'{rel}:{lineno} [{name}] {line}')
     sys.exit(2)
 
-print(f'public safety scan clean: {ROOT}')
+print(f'template check clean: {ROOT}')

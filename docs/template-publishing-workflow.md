@@ -1,10 +1,10 @@
-# Public export process
+# Template publishing workflow
 
-This is the process used to turn private server projects into public-safe repositories.
+This is the workflow used for turning a working homelab project into a repo other people can copy.
 
 ## 1. Export to a separate directory
 
-Never initialize a public repo directly in a live service directory. Copy only the files intended for publication into a separate export directory.
+Do not initialize a shareable repo directly in a live service directory. Copy only the files intended for the template into a separate export directory.
 
 ## 2. Replace live config with examples
 
@@ -14,7 +14,7 @@ Never initialize a public repo directly in a live service directory. Copy only t
 - Host paths -> configurable environment variables.
 - Live data -> excluded.
 
-## 3. Remove unsafe history and backups
+## 3. Remove history and runtime artifacts
 
 Do not copy:
 
@@ -23,13 +23,12 @@ Do not copy:
 - logs, databases, generated caches
 - live media, photos, documents, uploads
 
-## 4. Scan before publishing
+## 4. Check before publishing
 
-Run a private-data scan for:
+Run a repository check for:
 
 - private IPs and overlay/VPN addresses
 - private domains and internal hostnames
-- personal usernames/handles where not intended as public branding
 - secrets, tokens, passwords, API keys
 - host paths and disk labels
 - long random-looking strings
@@ -44,7 +43,7 @@ Use the project’s intended runtime:
 
 ## 6. Publish with normal HTTPS remote
 
-Use a normal GitHub HTTPS remote and temporary credential helper. Do not embed tokens in remote URLs or commit them to config files.
+Use a normal GitHub HTTPS remote and a temporary credential helper. Do not embed tokens in remote URLs or commit them to config files.
 
 ## 7. Verify remote
 

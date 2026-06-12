@@ -1,8 +1,8 @@
 # Reusable architecture patterns
 
-## Private admin dashboards
+## Admin dashboards
 
-Admin dashboards that can control Docker, run commands, or edit service files should be treated like shell access.
+Dashboards that can control Docker, run commands, or edit service files should be treated like shell access.
 
 Recommended pattern:
 
@@ -23,15 +23,15 @@ Reusable pattern:
 - If another service reports paths from its own container namespace, add a configurable mapping variable.
 - Preserve hardlinks for media/download workflows when possible.
 
-## Public-safe templates
+## Copy-ready templates
 
-A useful public repo should include:
+A useful template should include:
 
 - `README.md` with what it does, when to use it, setup, and risks.
 - `.env.example` with placeholders only.
 - `.gitignore` that blocks `.env`, databases, caches, logs, generated media, and bind-mount data.
 - Dockerfile/Compose if Docker is the intended path.
-- A safety scan script or checklist.
+- A check script or checklist.
 - No live config, backups, tokens, private paths, or personal domains.
 
 ## Status pages that are actually useful
