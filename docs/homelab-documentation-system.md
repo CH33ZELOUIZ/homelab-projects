@@ -17,7 +17,7 @@ Use this for:
 - architecture patterns
 - screenshots/demo data that do not reveal private infrastructure
 
-Public repos should read like normal projects, not like cleaned exports.
+Public repos should read like normal projects, not like conversion notes.
 
 ## Private operations layer
 
