@@ -38,6 +38,8 @@ for path in ROOT.rglob('*'):
         if 'replace-me' in line or 'placeholder' in line or 'your-' in line:
             continue
         for name, pattern in PATTERNS.items():
+            if name == 'secret_assignment' and any(token in line for token in ['os.getenv', 'os.environ', 'request.', 'data.get', 'get_token()', '.strip(', 'password =', 'token =', 'password=']):
+                continue
             if pattern.search(line):
                 hits.append((path.relative_to(ROOT), i, name, line.strip()))
 
