@@ -29,6 +29,10 @@ This repo is the map. Individual tools live in their own repositories so they ca
 - [Template publishing workflow](docs/template-publishing-workflow.md)
 - [Maintenance workflow](docs/maintenance-workflow.md)
 - [Template check checklist](docs/template-checklist.md)
+- [Project archive checklist](docs/project-archive-checklist.md)
+- [Media stack operations patterns](docs/media-stack-operations-patterns.md)
+- [Dashboard design patterns](docs/dashboard-design-patterns.md)
+- [Homelab documentation system](docs/homelab-documentation-system.md)
 
 ## License
 
